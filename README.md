@@ -1,12 +1,7 @@
 # What? Why?
-This repository contains code for using [GROOViST: A Metric for Grounding Objects in Visual Storytelling]() — In proceedings at the EMNLP 2023 (*To appear*).
+This repository contains code for using [GROOViST: A Metric for Grounding Objects in Visual Storytelling]() — In proceedings at EMNLP 2023 (*To appear*).
 
-Evaluating the degree to which textual stories are grounded in corresponding image sequences is essential for the Visual Storytelling task. We propose GROOViST, based on insights obtained from existing open-source metrics ([CLIPScore](https://github.com/jmhessel/clipscore), [RoViST-VG](https://github.com/usydnlp/rovist)). Our analyses shows that GROOViST effectively measures the extent to which a story is grounded in an image sequence.
-
-If you find this work useful, please consider citing it:
-```
-<TODO: update bibtex>
-```
+Evaluating the degree to which textual stories are grounded in the corresponding image sequences is essential for the Visual Storytelling task. We propose GROOViST, based on insights obtained from existing open-source metrics ([CLIPScore](https://github.com/jmhessel/clipscore), [RoViST-VG](https://github.com/usydnlp/rovist)). Our analyses shows that GROOViST effectively measures the extent to which a story is grounded in an image sequence.
 
 # How?
 
@@ -14,7 +9,9 @@ Currently, GROOViST can be used off-the-shelf for evaluating `<image-sequence, s
 
 ## Setup
 
-Install python (e.g., `3.11`) and other dependencies provided in [requirements.txt](requirements.txt), e.g., using `pip install -r requirements.txt`
+Install python (e.g., `3.11`) and other dependencies provided in [requirements.txt](requirements.txt). E.g., using:
+
+```pip install -r requirements.txt```
 
 ## Step 0: Extract image regions
 
@@ -23,8 +20,15 @@ For the sequence(s) of interest, GROOViST requires `B` image regions per image i
 ## Step 1: Extract noun phrases
 
 For the sequence(s) of interest, GROOViST works with the noun phrases in the stories. Use the following command for extracting noun phrases from stories:
+
 ```python extract_nphrases.py --input_file data/sample_stories.json --output_file data/sample_nphrases.json```
 
 ## Step 2: Compute GROOViST scores
 
 ```python groovist.py --dataset VIST --input_file data/sample_nphrases.json --output_file data/sample_scores.json```
+
+---
+If you find this work useful, please consider citing it:
+```
+<TODO: update bibtex>
+```
