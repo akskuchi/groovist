@@ -1,5 +1,5 @@
 # What? Why?
-This repository contains code for using [GROOViST: A Metric for Grounding Objects in Visual Storytelling](https://aclanthology.org/2023.emnlp-main.202/) — In proceedings at EMNLP 2023 (*To appear*).
+This repository contains code for using [GROOViST: A Metric for Grounding Objects in Visual Storytelling](https://aclanthology.org/2023.emnlp-main.202/) — In proceedings at EMNLP 2023.
 
 Evaluating the degree to which textual stories are grounded in the corresponding image sequences is essential for the Visual Storytelling task. We propose GROOViST, based on insights obtained from existing open-source metrics ([CLIPScore](https://github.com/jmhessel/clipscore), [RoViST-VG](https://github.com/usydnlp/rovist)). Our analyses shows that GROOViST effectively measures the extent to which a story is grounded in an image sequence.
 
