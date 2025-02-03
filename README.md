@@ -32,14 +32,19 @@ For the sequence(s) of interest, GROOViST works with the noun phrases in the sto
 ```
 @inproceedings{surikuchi-etal-2023-groovist,
     title = "{GROOV}i{ST}: A Metric for Grounding Objects in Visual Storytelling",
-    author = "Surikuchi, Aditya  and Pezzelle, Sandro  and Fern{\'a}ndez, Raquel",
-    editor = "Bouamor, Houda  and Pino, Juan  and Bali, Kalika",
+    author = "Surikuchi, Aditya K  and
+      Pezzelle, Sandro  and
+      Fern{\'a}ndez, Raquel",
+    editor = "Bouamor, Houda  and
+      Pino, Juan  and
+      Bali, Kalika",
     booktitle = "Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing",
     month = dec,
     year = "2023",
     address = "Singapore",
     publisher = "Association for Computational Linguistics",
-    url = "https://aclanthology.org/2023.emnlp-main.202",
+    url = "https://aclanthology.org/2023.emnlp-main.202/",
+    doi = "10.18653/v1/2023.emnlp-main.202",
     pages = "3331--3339"
 }
 ```
