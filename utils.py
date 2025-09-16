@@ -60,6 +60,8 @@ def get_image_ids(dataset, sid, sid_2_iids=None):
     elif dataset == 'VWP':
         scene_id = sid.split(';')[0]
         iids = [scene_id + f'_{str(idx)}' for idx in range(sid_2_iids[scene_id])]
+    elif dataset == 'custom':
+        iids = sid_2_iids[sid]
     else:
         print(f'get_image_ids() not implemented for dataset: {dataset}')
         sys.exit(1)
