@@ -104,4 +104,4 @@ def penalize_concretize_normalize(NPs_scores, cr_weights, theta=0.5, NPs=None):
     if NPs != None:
         print(f'scores of NPs: {dict(zip(NPs, NPs_scores.tolist()))}')
 
-    return (NPs_scores.sum() / NPs_scores.size()[0]).item()
+    return {'groovist': (NPs_scores.sum() / NPs_scores.size()[0]).item(), 'NP_scores': dict(zip(NPs, NPs_scores.tolist()))}
