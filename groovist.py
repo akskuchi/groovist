@@ -25,6 +25,8 @@ if __name__ == '__main__':
                         help='path to file with NPs (?.json)')
     parser.add_argument('--output_file', default='data/sample_scores.json',
                         help='path to file with GROOViST scores (?.json)')
+    parser.add_argument('--average_across_samples', action='store_true',
+                        help='compute and print average score across all samples')
     args = parser.parse_args()
 
     try:
@@ -69,14 +71,15 @@ if __name__ == '__main__':
         try:
             NPs_max_alignment = utils.get_max_alignment_scores(NPs_embs, iids, preprocess, model, IRs_df, IRs_path)
             scores.append(utils.penalize_concretize_normalize(NPs_max_alignment, torch.tensor(cr_weights), theta, NPs))
-            print(f'GROOViST score for {sid}: {scores[-1]}, in range [-1, 1]: {np.tanh(scores[-1])}\n')
+            print(f'GROOViST score for {sid}: {scores[-1]['groovist']}, in range [-1, 1]: {np.tanh(scores[-1]['groovist'])}\n')
         except Exception as e:
             print(f'{sid} not used for computing GROOViST', e)
-            scores.append(0.000)  # this default score is use-case dependent
+            scores.append({'groovist': 0.000, 'NP_scores': None})  # this default score is use-case dependent
 
-    print(f'\noverall GROOViST score: {fmean(scores)}\n')
+    if args.average_across_samples:
+        print(f'\noverall GROOViST score: {fmean([s['groovist'] for s in scores])}\n')
 
     with open(args.output_file, 'w') as fh:
-        json.dump(dict(zip(sids, scores)), fh, indent=2)
+        json.dump(dict(zip(sids, scores)), fh, indent=4)
     fh.close()
     print(f'saved scores to {args.output_file}\n')
